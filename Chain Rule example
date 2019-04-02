@@ -1,0 +1,21 @@
+import numpy as np #numpy에서diff 불러옴
+import matplotlib.pyplot as plt
+
+x = np.arange(0, 1, 0.0001) #[0,1)에서 0.0001씩 떨어진 수들 array[0,0.0001,0.0002,...,0.9999]로 반환
+g = np.exp(x)
+f = np.power(g, 2)
+
+fder = 2*np.exp(2*x)
+
+deltax = np.diff(x) 
+deltag = np.diff(g)
+deltaf = np.diff(f)
+
+for i in range(0, 10, 1):
+    print(x[i], g[i], f[i])
+print("\n")
+for i in range(0, 10, 1):
+    print(deltax[i], deltag[i], deltaf[i])
+print("\n")
+for i in range(0, 10, 1):
+    print(deltag[i]/deltax[i], deltaf[i]/deltag[i], deltaf[i]/deltax[i], fder[i])
